@@ -1,0 +1,35 @@
+{
+  "status": 200,
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/prompt-chains/layout,_N_T_/prompt-chains/page,_N_T_/prompt-chains"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/prompt-chains/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/ac31bbbe08574430edb29784ee48087db50c68a482756568afadba98772f233c/$/prompt-chains",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/prompt-chains/page"
+    },
+    "isFallback": false
+  }
+}
