@@ -273,6 +273,10 @@
     overflow: hidden;
   }
 
+  .fixed {
+    position: fixed;
+  }
+
   .block {
     display: block;
   }
