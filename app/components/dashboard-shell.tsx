@@ -10,16 +10,32 @@ const links = [
   { href: "/history", label: "Generation history", icon: "◷" },
 ];
 
-export function DashboardShell({ children }: { children: React.ReactNode }) {
+export function DashboardShell({
+  children,
+  displayName,
+  email,
+}: {
+  children: React.ReactNode;
+  displayName: string;
+  email: string;
+}) {
   const pathname = usePathname();
-  const current = links.find((link) => link.href === pathname);
+  const current = links.find((link) => link.href === pathname || (link.href !== "/" && pathname.startsWith(`${link.href}/`)));
+  const initials =
+    displayName
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0])
+      .join("")
+      .toUpperCase() || email[0]?.toUpperCase() || "U";
   return <div className="app-shell">
     <aside className="sidebar">
       <Link href="/" className="brand"><span className="brand-emblem">C</span><span className="brand-copy"><strong>Prompt Studio</strong><small>COLUMBIA UNIVERSITY</small></span></Link>
       <div className="workspace-label">WORKSPACE</div>
-      <nav className="side-nav" aria-label="Main navigation">{links.map((link) => <Link href={link.href} key={link.href} className={`nav-link ${pathname === link.href ? "active" : ""}`} aria-current={pathname === link.href ? "page" : undefined}><span className="nav-icon">{link.icon}</span><span>{link.label}</span>{link.href === "/prompt-chains" && <span className="nav-count">12</span>}</Link>)}</nav>
-      <div className="sidebar-bottom"><div className="help-card"><span className="help-icon">✳</span><strong>Need a hand?</strong><p>Learn how to build your first prompt chain.</p><a href="mailto:promptstudio@example.edu">Visit the guide <span>→</span></a></div><div className="profile-row"><span className="profile-avatar">AC</span><span className="profile-copy"><strong>Alex Chen</strong><small>Workspace admin</small></span><button className="more-button" aria-label="Account options" type="button">···</button></div></div>
+      <nav className="side-nav" aria-label="Main navigation">{links.map((link) => { const active = pathname === link.href || (link.href !== "/" && pathname.startsWith(`${link.href}/`)); return <Link href={link.href} key={link.href} className={`nav-link ${active ? "active" : ""}`} aria-current={pathname === link.href ? "page" : undefined}><span className="nav-icon">{link.icon}</span><span>{link.label}</span></Link>; })}</nav>
+      <div className="sidebar-bottom"><div className="profile-row"><span className="profile-avatar" aria-hidden="true">{initials}</span><span className="profile-copy"><strong>{displayName}</strong><small>{email}</small></span></div></div>
     </aside>
-    <main className="main-column"><header className="topbar"><div className="breadcrumbs"><span>Workspace</span><span className="crumb-separator">/</span><strong>{current?.label ?? "Overview"}</strong></div><div className="topbar-actions"><span className="topbar-note"><span className="status-dot" /> All changes saved</span><ThemeSwitcher /><span className="topbar-avatar">AC</span></div></header>{children}</main>
+    <main className="main-column"><header className="topbar"><div className="breadcrumbs"><span>Workspace</span><span className="crumb-separator">/</span><strong>{current?.label ?? "Overview"}</strong></div><div className="topbar-actions"><span className="topbar-note"><span className="status-dot" /> Signed in</span><ThemeSwitcher /><span className="topbar-avatar" title={email} aria-label={displayName}>{initials}</span><form action="/auth/signout" method="post" className="topbar-signout-form"><button className="button button-secondary signout-button" type="submit">Sign out</button></form></div></header>{children}</main>
   </div>;
 }

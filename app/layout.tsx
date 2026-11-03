@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./auth.css";
 import { ThemeProvider } from "./components/theme-provider";
-import { DashboardShell } from "./components/dashboard-shell";
 
 export const metadata: Metadata = {
   title: "Prompt Studio | Columbia University",
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider><DashboardShell>{children}</DashboardShell></ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
