@@ -132,3 +132,81 @@ body{zoom:1.08}
 .filter-label:focus-within::after{border-color:var(--blue)}
 .status-filter option{background:var(--surface);color:var(--text)}
 @media(max-width:700px){.status-filter{min-width:140px;min-height:44px;font-size:14px}}
+.history-page{padding-bottom:32px}
+.history-page-heading{align-items:flex-start}
+.history-page-heading .count-pill{margin-top:5px}
+.history-workspace{display:grid;gap:18px}
+.history-search{min-height:52px;display:flex;align-items:center;gap:11px;padding:0 15px;border:1px solid var(--border);border-radius:10px;background:var(--surface);box-shadow:var(--shadow);color:var(--muted);transition:border-color .15s ease,box-shadow .15s ease}
+.history-search:focus-within{border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 15%,transparent)}
+.history-search-icon{font-size:23px;line-height:1}
+.history-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--text);font:inherit;font-size:14px}
+.history-search input::placeholder{color:var(--muted)}
+.history-search-clear{border:0;background:transparent;color:var(--blue);font-size:12px;font-weight:650;cursor:pointer}
+.history-tabs-wrap{margin:0 -4px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:thin}
+.history-tabs{display:flex;width:max-content;min-width:100%;gap:5px;padding:0 4px}
+.history-tab{position:relative;display:flex;align-items:center;gap:9px;min-height:46px;padding:0 13px;border:0;border-radius:7px 7px 0 0;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer;transition:background .15s ease,color .15s ease}
+.history-tab:hover{background:var(--blue-soft);color:var(--text)}
+.history-tab.active{color:var(--blue)}
+.history-tab.active::after{position:absolute;right:9px;bottom:-1px;left:9px;height:2px;background:var(--blue);content:""}
+.history-tab:focus-visible,.history-search-clear:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.history-tab-count{min-width:20px;padding:3px 6px;border-radius:12px;background:var(--bg);color:var(--muted);font-size:10px;text-align:center}
+.history-tab.active .history-tab-count{background:var(--blue-soft);color:var(--blue)}
+.history-tab-panel{min-width:0;outline:0}
+.history-results-heading{display:flex;align-items:center;justify-content:space-between;margin:3px 0 15px}
+.history-results-heading h2{margin:0 0 4px;font-size:17px;letter-spacing:-.25px}
+.history-results-heading .muted{font-size:12px}
+.history-list{display:grid;gap:12px}
+.history-run{padding:0;overflow:hidden;transition:border-color .15s ease,box-shadow .15s ease}
+.history-run[open]{border-color:color-mix(in srgb,var(--blue) 40%,var(--border))}
+.history-run-summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:19px 21px;cursor:pointer;list-style:none}
+.history-run-summary::-webkit-details-marker{display:none}
+.history-run-summary:focus-visible{outline:2px solid var(--blue);outline-offset:-3px;border-radius:9px}
+.history-run-main{display:grid;gap:7px;min-width:0}
+.history-run-main .eyebrow{margin:0;text-transform:none;letter-spacing:.3px}
+.history-run-title{overflow:hidden;font-size:16px;font-weight:650;letter-spacing:-.2px;text-overflow:ellipsis}
+.history-run-preview{display:-webkit-box;overflow:hidden;color:var(--muted);font-size:12px;line-height:1.55;-webkit-box-orient:vertical;-webkit-line-clamp:2;white-space:pre-wrap;overflow-wrap:anywhere}
+.history-run-meta{display:grid;justify-items:end;gap:8px;flex-shrink:0}
+.history-run-meta .muted{font-size:11px;white-space:nowrap}
+.history-disclosure{width:9px;height:9px;margin:2px 3px 0;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);transition:transform .15s ease}
+.history-run[open] .history-disclosure{transform:rotate(225deg)}
+.history-run-details{display:grid;gap:20px;padding:18px 21px 22px;border-top:1px solid var(--border)}
+.history-detail-meta{display:flex;align-items:center;flex-wrap:wrap;gap:15px 22px;padding-bottom:15px;border-bottom:1px solid var(--border);color:var(--text);font-size:12px}
+.history-detail-meta>span{display:flex;align-items:center;gap:8px}
+.history-detail-label{color:var(--muted);font-weight:600}
+.history-detail-section{min-width:0}
+.history-detail-section h3{margin:0 0 10px;font-size:13px;font-weight:700}
+.history-detail-text{margin:0;color:var(--text);font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.history-detail-section pre,.history-step-list pre{max-height:520px;overflow:auto;margin:0;padding:14px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font:inherit;font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.history-step-list{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.history-step-list>li{display:grid;gap:9px;min-width:0}
+.history-step-list>li+li{padding-top:14px;border-top:1px solid var(--border)}
+.history-step-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.history-step-heading h4{display:flex;align-items:center;gap:9px;margin:0;font-size:12px;font-weight:650}
+.history-step-heading h4>span{display:grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--blue-soft);color:var(--blue);font-size:10px}
+.history-no-output{font-size:12px}
+.history-empty{margin-top:6px}
+.history-empty-compact{display:grid;justify-items:start;gap:10px;padding:23px}
+.history-empty-compact h2{margin:0;font-size:15px}
+.history-empty-compact .button{margin-top:3px}
+.back-link{display:inline-block;margin-top:22px}
+@media(max-width:800px){
+  .history-page{padding-right:22px;padding-left:22px}
+  .history-run-summary{padding:17px}
+  .history-run-details{padding:16px 17px 19px}
+}
+@media(max-width:560px){
+  .history-page{padding:25px 14px}
+  .history-page-heading{gap:12px;flex-direction:column;align-items:flex-start}
+  .history-workspace{gap:14px}
+  .history-search{min-height:48px;padding:0 12px}
+  .history-search input{font-size:13px}
+  .history-tab{min-height:43px;padding:0 10px;font-size:12px}
+  .history-run-summary{align-items:flex-start;gap:11px;padding:15px}
+  .history-run-title{font-size:14px}
+  .history-run-preview{font-size:11px}
+  .history-run-meta{gap:7px}
+  .history-run-meta .muted{font-size:10px}
+  .history-detail-meta{align-items:flex-start;flex-direction:column;gap:11px}
+  .history-detail-section pre,.history-step-list pre{padding:11px;font-size:11px}
+  .history-empty-compact{padding:18px}
+}
